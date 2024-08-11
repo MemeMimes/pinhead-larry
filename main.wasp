@@ -1,0 +1,36 @@
+app pinheadLarry {
+  wasp: {
+    version: "^0.14.0"
+  },
+  title: "pinhead-larry",
+  client: {
+    rootComponent: import App from "@src/client/App",
+  },
+
+  auth: {
+    userEntity: User,
+    methods: {
+      discord: {
+        configFn: import { discordAuthConfig } from "@src/server/auth/discord.js",
+        userSignupFields: import { discordUserSignupFields } from "@src/server/auth/discord.js",
+      }
+    },
+    onAuthFailedRedirectTo: "/login",
+  }
+}
+
+route RootRoute { path: "/", to: LandingPage }
+page LandingPage {
+  component: import LandingPage from "@src/client/pages/LandingPage",
+}
+
+route LoginRoute { path: "/login", to: LoginPage }
+page LoginPage {
+  component: import { Login } from "@src/client/pages/auth/auth.tsx"
+}
+
+route ProfileRoute { path: "/profile", to: ProfilePage }
+page ProfilePage {
+  authRequired: true,
+  component: import ProfilePage from "@src/client/pages/ProfilePage"
+}
