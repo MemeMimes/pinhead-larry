@@ -34,3 +34,8 @@ page ProfilePage {
   authRequired: true,
   component: import ProfilePage from "@src/client/pages/ProfilePage"
 }
+
+query getUserGuilds {
+  fn: import { getUserGuilds } from "@src/server/queries.js",
+  entities: [ User, Guild ],
+}

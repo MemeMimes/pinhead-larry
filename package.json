@@ -8,6 +8,8 @@
     "@fontsource-variable/roboto-mono": "^5.0.19",
     "@fontsource/noto-sans-mono": "^5.0.20",
     "@fontsource/roboto-mono": "^5.0.18",
+    "@phosphor-icons/react": "^2.1.7",
+    "discord.js": "^14.15.3",
     "framer-motion": "^11.3.24",
     "react": "^18.2.0",
     "wasp": "file:.wasp/out/sdk/wasp"

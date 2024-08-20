@@ -12,4 +12,13 @@ model User {
   username  String  @unique
   email     String  @default("")
   avatarUrl String? @default("")
+    guilds    Guild[]
+}
+
+model Guild {
+  id          String  @id @default(uuid())
+  name        String
+  iconUrl     String?
+  owner       User    @relation(fields: [ownerId], references: [id])
+  ownerId     String
 }
